@@ -12,7 +12,7 @@ link -> [Website Link](http:aman-meenia.work.gd)
 
 ## Only http works , https not work because certbot is not able to generate the ssl certifcate for this domain
 
-## RUN CODE
+## Start app
 
 ```
 cd frontend
