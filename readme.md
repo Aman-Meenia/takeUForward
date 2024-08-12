@@ -8,6 +8,6 @@
 
 ## Website Link
 
-link -> [Link text Here](http:aman-meenia.work.gd)
+link -> [Website Link](http:aman-meenia.work.gd)
 
 ## Only http works , https not work because certbot is not able to generate the ssl certifcate for this domain
