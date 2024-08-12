@@ -21,6 +21,11 @@ services:
       - "3001:3000"
     volumes:
       - ./backend:/usr/src/app
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: aman
+      DB_PASSWORD: aman123
     depends_on:
       - mysql
 
