@@ -24,7 +24,11 @@ cd backend
 
 docker build -t backend .
 
-docker-compose up -d
+docker-compose up --build -d
+
+docker-compose up
+
+docker-compose down
 
 ```
 ![30ecaeb7f609301a408f2daf9f8b7535](https://github.com/user-attachments/assets/4168e4a0-2ad9-4c41-921e-0b52b0575fcb)
