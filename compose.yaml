@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src/app
+    command: ["npm", "run", "dev", "--", "--host"]
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    build: ./backend
+    restart: always
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./backend:/usr/src/app
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql
+    restart: always
+    image: mysql:latest
+    ports:
+      - "3906:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123457
+      MYSQL_USER: "aman"
+      MYSQL_PASSWORD: "aman123"
+      MYSQL_DATABASE: "takeUforward"
+    volumes:
+      - mydatavolume:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PASSWORD: "aman123" # Should match MYSQL_PASSWORD
+      PMA_PORT: 3906
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mydatavolume:
